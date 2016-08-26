@@ -21,11 +21,7 @@ class HitListTableViewController: UITableViewController {
         myFormatter.dateStyle = .NoStyle
         myFormatter.timeStyle = .MediumStyle
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,18 +62,12 @@ class HitListTableViewController: UITableViewController {
         return people.count
     }
     
-    /*
-     @NSManaged var name: String?
-     @NSManaged var theDate: NSTimeInterval
-     @NSManaged var theImage: NSData?
-     */
-
+  
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("HitListTableViewCell", forIndexPath: indexPath) as! HitListTableViewCell
 
         // Configure the cell...
-        //cell.nameLabel.text = names[indexPath.row]
         let person = people[indexPath.row]
         cell.nameLabel.text = person.valueForKey("name") as? String
         
