@@ -149,6 +149,14 @@ class DrawingCollectionViewController: UICollectionViewController
         }
         collectionView!.reloadData()
     }
+//    
+//    override func setEditing(editing: Bool, animated: Bool)
+//    {
+//        super.setEditing(editing, animated: animated)
+//        collectionView?.allowsMultipleSelection = editing
+//      //  toolBar.hidden = !editing
+//    }
+
 
     
     // MARK: UICollectionViewDelegate
