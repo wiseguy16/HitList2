@@ -17,7 +17,7 @@ class HitListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "The List"
+        title = "The Gallery"
         myFormatter.dateStyle = .NoStyle
         myFormatter.timeStyle = .MediumStyle
 
@@ -47,6 +47,8 @@ class HitListTableViewController: UITableViewController {
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
+        
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -77,10 +79,6 @@ class HitListTableViewController: UITableViewController {
         cell.DateLabel.text = formattedTime
         
         
-//        UIGraphicsBeginImageContextWithOptions(view.bounds.size, true, 0)
-//        view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: true)
-//        let image = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
 
         //let thisImage: UIImage = UIImage(data: person.valueForKey("theImage")
         let myData = person.valueForKey("theImage") as! NSData
@@ -158,96 +156,76 @@ class HitListTableViewController: UITableViewController {
     
     @IBAction func addName(sender: UIBarButtonItem)
     {
-        let alert = UIAlertController(title: "New Name", message: "Add a new name", preferredStyle: .Alert)
-        
-        let saveAction = UIAlertAction(title: "Save", style: .Default, handler: {
-            (action:UIAlertAction) -> Void in
-                                        let textField = alert.textFields!.first
-                                        self.saveName(textField!.text!)
-                                        self.tableView.reloadData()
-        })
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Default) {
-            (action: UIAlertAction) -> Void in
-        }
-        
-        alert.addTextFieldWithConfigurationHandler {
-            (textField: UITextField) -> Void in
-        }
-        
-        alert.addAction(saveAction)
-        alert.addAction(cancelAction)
-        
-        presentViewController(alert, animated: true, completion: nil)
-    }
-    
-    func saveName(name: String)
-    {
-        //1
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        let managedContext = appDelegate.managedObjectContext
-        
-        //2
-        let entity =  NSEntityDescription.entityForName("Person", inManagedObjectContext:managedContext)
-        
-        let person = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
-        
-        //3
-        person.setValue(name, forKey: "name")
-    
-        
-        let currentDate = NSDate()
-       // let thisIsTheTime = myFormatter.stringFromDate(currentDate)
-        person.setValue(currentDate, forKey: "theDate")
-        
-      //  NSData *imageData = UIImagePNGRepresentation(yourImage);
-      //  To convert NSData back to a UIImage, you can do this:
-      //  UIImage *image = [[UIImage alloc]initWithData:yourData];
-        
-        let imageData = UIImagePNGRepresentation(makeImage())
-        person.setValue(imageData, forKey: "theImage")
-        
-//        -(UIImage*) makeImage {
-//            
-//            UIGraphicsBeginImageContext(self.view.bounds.size);
-//            
-//            [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
-//            
-//            UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
-//            UIGraphicsEndImageContext();
-//            
-//            return viewImage;
+//        let alert = UIAlertController(title: "Save Drawing", message: "Add a new name", preferredStyle: .Alert)
+//        
+//        let saveAction = UIAlertAction(title: "Save", style: .Default, handler: {
+//            (action:UIAlertAction) -> Void in
+//                                        let textField = alert.textFields!.first
+//                                        self.saveName(textField!.text!)
+//                                        self.tableView.reloadData()
+//        })
+//        
+//        let cancelAction = UIAlertAction(title: "Cancel", style: .Default) {
+//            (action: UIAlertAction) -> Void in
 //        }
 //        
-//        UIGraphicsBeginImageContextWithOptions(view.bounds.size, true, 0)
-//        view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: true)
-//        let image = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-        
-        
-        //4
-        do {
-            try managedContext.save()
-            //5
-            people.append(person)
-        } catch let error as NSError  {
-            print("Could not save \(error), \(error.userInfo)")
-        }
+//        alert.addTextFieldWithConfigurationHandler {
+//            (textField: UITextField) -> Void in
+//        }
+//        
+//        alert.addAction(saveAction)
+//        alert.addAction(cancelAction)
+//        
+//        presentViewController(alert, animated: true, completion: nil)
     }
     
-    //        -(UIImage*) makeImage {
-    //
-    //            UIGraphicsBeginImageContext(self.view.bounds.size);
-    //
-    //            [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
-    //
-    //            UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
-    //            UIGraphicsEndImageContext();
-    //
-    //            return viewImage;
-    //        }
-    @IBAction func deleteLastPerson(sender: UIBarButtonItem)
+//    func saveName(name: String)
+//    {
+//        //1
+//        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//        
+//        let managedContext = appDelegate.managedObjectContext
+//        
+//        //2
+//        let entity =  NSEntityDescription.entityForName("Person", inManagedObjectContext:managedContext)
+//        
+//        let person = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+//        
+//        //3
+//        person.setValue(name, forKey: "name")
+//    
+//        
+//        let currentDate = NSDate()
+//       // let thisIsTheTime = myFormatter.stringFromDate(currentDate)
+//        person.setValue(currentDate, forKey: "theDate")
+//        
+//        
+//        let imageData = UIImagePNGRepresentation(makeImage())
+//        person.setValue(imageData, forKey: "theImage")
+//        
+//        //4
+//        do {
+//            try managedContext.save()
+//            //5
+//            people.append(person)
+//        } catch let error as NSError  {
+//            print("Could not save \(error), \(error.userInfo)")
+//        }
+//    }
+//    
+//    func makeImage() -> UIImage
+//    {
+//        UIGraphicsBeginImageContext(self.view.bounds.size)
+//        view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+//        let viewImage = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//        return viewImage
+//    }
+
+    
+    
+    
+        @IBAction func deleteLastPerson(sender: UIBarButtonItem)
     {
         
         deleteName()
@@ -263,18 +241,7 @@ class HitListTableViewController: UITableViewController {
         let managedContext = appDelegate.managedObjectContext
        // managedContext.deleteObject(people.last!)
         
-        //2
-       // let entity =  NSEntityDescription.entityForName("Person", inManagedObjectContext:managedContext)
-        
-        //let person = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
-        
-        //3
-       // person.setValue(name, forKey: "name")
-        
-        
 
-        
-        
         //4
         do {
             //people.
@@ -286,17 +253,10 @@ class HitListTableViewController: UITableViewController {
         } catch let error as NSError  {
             print("Could not save \(error), \(error.userInfo)")
         }
+        tableView.reloadData()
     }
 
     
-    func makeImage() -> UIImage
-    {
-        UIGraphicsBeginImageContext(self.view.bounds.size)
-        view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
-        let viewImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return viewImage
-    }
     
     
 

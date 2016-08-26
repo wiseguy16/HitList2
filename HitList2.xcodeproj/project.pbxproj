@@ -14,9 +14,11 @@
 		4A45F6041D6F8CE900E1BDC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A45F6021D6F8CE900E1BDC9 /* LaunchScreen.storyboard */; };
 		4A45F60C1D6F8D3200E1BDC9 /* HitListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45F60B1D6F8D3200E1BDC9 /* HitListTableViewController.swift */; };
 		4A45F60E1D6F8D4A00E1BDC9 /* HitListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45F60D1D6F8D4A00E1BDC9 /* HitListTableViewCell.swift */; };
-		4A45F6111D6F963600E1BDC9 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45F60F1D6F963600E1BDC9 /* Person+CoreDataProperties.swift */; };
-		4A45F6121D6F963600E1BDC9 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45F6101D6F963600E1BDC9 /* Person.swift */; };
 		4A45F6141D708C5900E1BDC9 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45F6131D708C5900E1BDC9 /* DrawingViewController.swift */; };
+		4A45F6161D70BA0100E1BDC9 /* DrawingCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45F6151D70BA0100E1BDC9 /* DrawingCollectionViewController.swift */; };
+		4A45F6181D70BA3C00E1BDC9 /* DrawingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45F6171D70BA3C00E1BDC9 /* DrawingCell.swift */; };
+		4A45F61B1D70C85800E1BDC9 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45F6191D70C85800E1BDC9 /* Person+CoreDataProperties.swift */; };
+		4A45F61C1D70C85800E1BDC9 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45F61A1D70C85800E1BDC9 /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,9 +31,11 @@
 		4A45F6051D6F8CE900E1BDC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A45F60B1D6F8D3200E1BDC9 /* HitListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitListTableViewController.swift; sourceTree = "<group>"; };
 		4A45F60D1D6F8D4A00E1BDC9 /* HitListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitListTableViewCell.swift; sourceTree = "<group>"; };
-		4A45F60F1D6F963600E1BDC9 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		4A45F6101D6F963600E1BDC9 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		4A45F6131D708C5900E1BDC9 /* DrawingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
+		4A45F6151D70BA0100E1BDC9 /* DrawingCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingCollectionViewController.swift; sourceTree = "<group>"; };
+		4A45F6171D70BA3C00E1BDC9 /* DrawingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingCell.swift; sourceTree = "<group>"; };
+		4A45F6191D70C85800E1BDC9 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4A45F61A1D70C85800E1BDC9 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,8 +52,8 @@
 		4A45F5EA1D6F8CE900E1BDC9 = {
 			isa = PBXGroup;
 			children = (
-				4A45F60F1D6F963600E1BDC9 /* Person+CoreDataProperties.swift */,
-				4A45F6101D6F963600E1BDC9 /* Person.swift */,
+				4A45F6191D70C85800E1BDC9 /* Person+CoreDataProperties.swift */,
+				4A45F61A1D70C85800E1BDC9 /* Person.swift */,
 				4A45F5F51D6F8CE900E1BDC9 /* HitList2 */,
 				4A45F5F41D6F8CE900E1BDC9 /* Products */,
 			);
@@ -66,10 +70,12 @@
 		4A45F5F51D6F8CE900E1BDC9 /* HitList2 */ = {
 			isa = PBXGroup;
 			children = (
+				4A45F60B1D6F8D3200E1BDC9 /* HitListTableViewController.swift */,
 				4A45F5F61D6F8CE900E1BDC9 /* AppDelegate.swift */,
 				4A45F60D1D6F8D4A00E1BDC9 /* HitListTableViewCell.swift */,
 				4A45F6131D708C5900E1BDC9 /* DrawingViewController.swift */,
-				4A45F60B1D6F8D3200E1BDC9 /* HitListTableViewController.swift */,
+				4A45F6151D70BA0100E1BDC9 /* DrawingCollectionViewController.swift */,
+				4A45F6171D70BA3C00E1BDC9 /* DrawingCell.swift */,
 				4A45F5FA1D6F8CE900E1BDC9 /* Main.storyboard */,
 				4A45F6001D6F8CE900E1BDC9 /* Assets.xcassets */,
 				4A45F6021D6F8CE900E1BDC9 /* LaunchScreen.storyboard */,
@@ -150,13 +156,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A45F6121D6F963600E1BDC9 /* Person.swift in Sources */,
 				4A45F5F71D6F8CE900E1BDC9 /* AppDelegate.swift in Sources */,
-				4A45F6111D6F963600E1BDC9 /* Person+CoreDataProperties.swift in Sources */,
 				4A45F6141D708C5900E1BDC9 /* DrawingViewController.swift in Sources */,
+				4A45F6181D70BA3C00E1BDC9 /* DrawingCell.swift in Sources */,
 				4A45F60E1D6F8D4A00E1BDC9 /* HitListTableViewCell.swift in Sources */,
+				4A45F61B1D70C85800E1BDC9 /* Person+CoreDataProperties.swift in Sources */,
 				4A45F5FF1D6F8CE900E1BDC9 /* HitList2.xcdatamodeld in Sources */,
+				4A45F61C1D70C85800E1BDC9 /* Person.swift in Sources */,
 				4A45F60C1D6F8D3200E1BDC9 /* HitListTableViewController.swift in Sources */,
+				4A45F6161D70BA0100E1BDC9 /* DrawingCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +278,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HitList2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gerusa04.HitList2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -281,6 +290,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HitList2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gerusa04.HitList2;
 				PRODUCT_NAME = "$(TARGET_NAME)";

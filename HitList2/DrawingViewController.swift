@@ -11,7 +11,7 @@ import CoreData
 
 class DrawingViewController: UIViewController
 {
-    var people = [NSManagedObject]()
+    //var people = [NSManagedObject]()
 
     @IBOutlet weak var gestureNameLabel: UILabel!
     
@@ -40,14 +40,90 @@ class DrawingViewController: UIViewController
 
     @IBAction func goBackTapped(sender: UIBarButtonItem)
     {
+       // HitListTableViewController().tableView.reloadData()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     
     @IBAction func saveDrawing(sender: UIBarButtonItem)
     {
-        showGestureName()
+        let alert = UIAlertController(title: "Save Drawing", message: "Add a new name", preferredStyle: .Alert)
+        
+        let saveAction = UIAlertAction(title: "Save", style: .Default, handler: {
+            (action:UIAlertAction) -> Void in
+            let textField = alert.textFields!.last
+            self.saveName(textField!.text!)
+           // self.tableView.reloadData()
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Default) {
+            (action: UIAlertAction) -> Void in
+        }
+        
+        alert.addTextFieldWithConfigurationHandler {
+            (textField: UITextField) -> Void in
+        }
+        
+        //alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        alert.addAction(saveAction)
+        
+        presentViewController(alert, animated: true, completion: nil)
+        
+        
+      //  showGestureName()
+        
     }
+    
+  
+    func saveName(name: String)
+    {
+        //1
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+        
+        //2
+        let entity =  NSEntityDescription.entityForName("Person", inManagedObjectContext:managedContext)
+        
+        let person = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext) as! Person
+        
+        //3
+        person.name = name
+        
+        
+        let currentDate = NSDate()
+        // let thisIsTheTime = myFormatter.stringFromDate(currentDate)
+        person.theDate = currentDate
+        
+        
+        let imageData = UIImagePNGRepresentation(makeImage())
+        person.theImage = imageData
+        
+        //4
+        do {
+            managedContext.insertObject(person)
+            try managedContext.save()
+            //5
+           // people.append(person)
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+    }
+    
+    func makeImage() -> UIImage
+    {
+        UIGraphicsBeginImageContext(self.view.bounds.size)
+        view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let viewImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return viewImage
+    }
+    
+
+    
+    
+    
     /*
     // MARK: - Navigation
 
