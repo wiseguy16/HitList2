@@ -86,6 +86,17 @@ class HitListTableViewController: UITableViewController {
         let formattedTime = myFormatter.stringFromDate(timeToShow!)
         cell.DateLabel.text = formattedTime
         
+        
+//        UIGraphicsBeginImageContextWithOptions(view.bounds.size, true, 0)
+//        view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: true)
+//        let image = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+
+        //let thisImage: UIImage = UIImage(data: person.valueForKey("theImage")
+        let myData = person.valueForKey("theImage") as! NSData
+        let myImage = UIImage(data: myData)
+        
+        cell.pictView.image = myImage
 
         return cell
     }
@@ -126,15 +137,34 @@ class HitListTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+//    
+//    {
+//        if segue.identifier == "GoModalSegue"
+//        {
+//        let drawingVc = segue.destinationViewController as! DrawingViewController
+//            self.presentViewController(drawingVc, animated: true, completion: nil)
+//            //drawingVc.presentViewController(DrawingViewController, animated: true, completion: nil)
+//           // drawingVc.transitioningDelegate = self
+//            
+//        }
+        
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+//    }
+    
+    @IBAction func gotoModalTapped(sender: UIBarButtonItem)
+    {
+        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("DrawingModalVC")
+        self.showViewController(vc as! DrawingViewController, sender: vc)
+        
     }
-    */
+    
+ 
     
     @IBAction func addName(sender: UIBarButtonItem)
     {
@@ -175,14 +205,36 @@ class HitListTableViewController: UITableViewController {
         
         //3
         person.setValue(name, forKey: "name")
-        
-//        var myTimestamp: NSTimeInterval {
-//            return NSDate().timeIntervalSince1970
-//        }
+    
         
         let currentDate = NSDate()
        // let thisIsTheTime = myFormatter.stringFromDate(currentDate)
         person.setValue(currentDate, forKey: "theDate")
+        
+      //  NSData *imageData = UIImagePNGRepresentation(yourImage);
+      //  To convert NSData back to a UIImage, you can do this:
+      //  UIImage *image = [[UIImage alloc]initWithData:yourData];
+        
+        let imageData = UIImagePNGRepresentation(makeImage())
+        person.setValue(imageData, forKey: "theImage")
+        
+//        -(UIImage*) makeImage {
+//            
+//            UIGraphicsBeginImageContext(self.view.bounds.size);
+//            
+//            [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+//            
+//            UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
+//            UIGraphicsEndImageContext();
+//            
+//            return viewImage;
+//        }
+//        
+//        UIGraphicsBeginImageContextWithOptions(view.bounds.size, true, 0)
+//        view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: true)
+//        let image = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+        
         
         //4
         do {
@@ -194,6 +246,67 @@ class HitListTableViewController: UITableViewController {
         }
     }
     
+    //        -(UIImage*) makeImage {
+    //
+    //            UIGraphicsBeginImageContext(self.view.bounds.size);
+    //
+    //            [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    //
+    //            UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
+    //            UIGraphicsEndImageContext();
+    //
+    //            return viewImage;
+    //        }
+    @IBAction func deleteLastPerson(sender: UIBarButtonItem)
+    {
+        
+        deleteName()
+        tableView.reloadData()
+        
+    }
+    
+    func deleteName()
+    {
+        //1
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+       // managedContext.deleteObject(people.last!)
+        
+        //2
+       // let entity =  NSEntityDescription.entityForName("Person", inManagedObjectContext:managedContext)
+        
+        //let person = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
+        
+        //3
+       // person.setValue(name, forKey: "name")
+        
+        
+
+        
+        
+        //4
+        do {
+            //people.
+            try managedContext.save()
+            //5
+            people.removeLast()
+            managedContext.deleteObject(people.last!)
+           // people.removeLast()
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+    }
+
+    
+    func makeImage() -> UIImage
+    {
+        UIGraphicsBeginImageContext(self.view.bounds.size)
+        view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let viewImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return viewImage
+    }
     
     
 
