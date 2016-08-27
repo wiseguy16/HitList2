@@ -127,8 +127,12 @@ class DrawingCollectionViewController: UICollectionViewController
             
        // }
         let tempString = ableToDelete ? "Delete": "Done"
+        let tempColor = ableToDelete ? UIColor.grayColor() : UIColor.redColor()
         sender.title = tempString
+        collectionView?.backgroundColor = tempColor
         ableToDelete = !ableToDelete
+        
+        
         //let tempColor = collectionView.cellForItemAtIndexPath(indexPath)?.backgroundColor
         
         
@@ -194,13 +198,11 @@ class DrawingCollectionViewController: UICollectionViewController
         let managedContext = appDelegate.managedObjectContext
         // managedContext.deleteObject(people.last!)
         
-     //   let tempColor = collectionView.cellForItemAtIndexPath(indexPath)?.backgroundColor
         
         if ableToDelete == true
         {
         //4
         do {
-            //people.
             //try //managedContext.save()
             //5
            // let personToDelete = people.removeAtIndex(indexPath.row)
@@ -211,14 +213,14 @@ class DrawingCollectionViewController: UICollectionViewController
        */
          
             people.removeAtIndex(indexPath.row)
-          //  collectionView.deleteItemsAtIndexPaths([indexPath])
+            collectionView.deleteItemsAtIndexPaths([indexPath])
             managedContext.deleteObject(personToDelete)
             try  managedContext.save()
            // collectionView.cellForItemAtIndexPath(indexPath)?.backgroundColor = tempColor
             // people.removeLast()
-        } catch let error as NSError  {
+            } catch let error as NSError  {
             print("Could not save \(error), \(error.userInfo)")
-        }
+            }
         }
         
 //        collectionView.cellForItemAtIndexPath(indexPath)?.backgroundColor = tempColor

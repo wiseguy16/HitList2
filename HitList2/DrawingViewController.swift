@@ -16,6 +16,11 @@ class DrawingViewController: UIViewController
     @IBOutlet weak var gestureNameLabel: UILabel!
     
     @IBOutlet weak var canvas: UIImageView!
+    @IBOutlet weak var colorPicker: SwiftHSVColorPicker!
+    @IBOutlet weak var colorButtonOutlet: UIButton!
+    
+    var selectedColor: UIColor = UIColor.magentaColor()
+    var colorToUse = UIColor.magentaColor()
     
     var start: CGPoint?
     
@@ -23,6 +28,9 @@ class DrawingViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        colorPicker.setViewColor(selectedColor)
+        colorButtonOutlet.enabled = false
 
         // Do any additional setup after loading the view.
     }
@@ -44,6 +52,33 @@ class DrawingViewController: UIViewController
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    
+    @IBAction func getSelectedColor(sender: UIButton)
+    {
+        let selectedColor = colorPicker.color
+        colorPicker.alpha = 0.0
+        colorButtonOutlet.alpha = 0.0
+        colorButtonOutlet.enabled = false
+        colorToUse = selectedColor
+        
+        canvas.alpha = 1.0
+        
+        
+        
+        print(selectedColor)
+        
+        
+    }
+    
+    @IBAction func pickColorTapped(sender: UIBarButtonItem)
+    {
+        colorPicker.alpha = 1.0
+        colorButtonOutlet.alpha = 1.0
+        colorButtonOutlet.enabled = true
+        
+        canvas.alpha = 0.0
+        
+    }
     
     @IBAction func saveDrawing(sender: UIBarButtonItem)
     {
@@ -161,7 +196,7 @@ class DrawingViewController: UIViewController
             width: canvas.frame.size.width, height: canvas.frame.size.height))
         // draw the new line segment
         CGContextSetLineWidth(context, 5)
-        CGContextSetStrokeColorWithColor(context, UIColor.magentaColor().CGColor)
+        CGContextSetStrokeColorWithColor(context, colorToUse.CGColor)
         CGContextBeginPath(context)
         CGContextMoveToPoint(context, start.x, start.y)
         CGContextAddLineToPoint(context, end.x, end.y)
