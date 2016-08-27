@@ -21,6 +21,7 @@ class DrawingViewController: UIViewController
     
     var selectedColor: UIColor = UIColor.magentaColor()
     var colorToUse = UIColor.magentaColor()
+    var adjustableLineWidth: CGFloat = 1
     
     var start: CGPoint?
     
@@ -31,6 +32,7 @@ class DrawingViewController: UIViewController
         
         colorPicker.setViewColor(selectedColor)
         colorButtonOutlet.enabled = false
+        adjustableLineWidth = 5
 
         // Do any additional setup after loading the view.
     }
@@ -79,6 +81,30 @@ class DrawingViewController: UIViewController
         canvas.alpha = 0.0
         
     }
+    
+    @IBAction func pinched(sender: UIPinchGestureRecognizer)
+    {
+        if sender.state == .Ended
+        {
+            print("pinched")
+            let widthNow = sender.scale
+            adjustableLineWidth = widthNow * 5
+            print(widthNow)
+            
+        }
+        
+    }
+    
+//
+//    @IBAction func pinch(sender: UIPinchGestureRecognizer)
+//    {
+//       if sender.state == .Ended
+//       {
+//        print("pinched")
+//        }
+//        
+//    }
+//    
     
     @IBAction func saveDrawing(sender: UIBarButtonItem)
     {
@@ -195,7 +221,7 @@ class DrawingViewController: UIViewController
         canvas.image?.drawInRect(CGRect(x: 0, y: 0,
             width: canvas.frame.size.width, height: canvas.frame.size.height))
         // draw the new line segment
-        CGContextSetLineWidth(context, 5)
+        CGContextSetLineWidth(context, adjustableLineWidth)
         CGContextSetStrokeColorWithColor(context, colorToUse.CGColor)
         CGContextBeginPath(context)
         CGContextMoveToPoint(context, start.x, start.y)
