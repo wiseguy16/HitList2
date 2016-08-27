@@ -16,6 +16,7 @@ class DrawingCollectionViewController: UICollectionViewController
     
     var people = [NSManagedObject]()
     var myFormatter = NSDateFormatter()
+    var ableToDelete = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,8 +120,32 @@ class DrawingCollectionViewController: UICollectionViewController
     
     @IBAction func deleteDrawingTapped(sender: UIBarButtonItem)
     {
-        deleteName()
-        collectionView!.reloadData()
+       // if deletingInProgress == false
+       // {
+       // ableToDelete = false
+          //  deletingInProgress = true
+            
+       // }
+        let tempString = ableToDelete ? "Delete": "Done"
+        sender.title = tempString
+        ableToDelete = !ableToDelete
+        
+        
+      //   ableToDelete ? sender.title = "Done": sender.title = "Delete"
+//       if ableToDelete == false
+//        {
+//        sender.title = "Done"
+//        ableToDelete = true
+//        }
+//        else if ableToDelete == true
+//        {
+//            sender.title = "Delete"
+//            ableToDelete = false
+//        }
+//
+        
+       // deleteName()
+       // collectionView!.reloadData()
         
     }
     
@@ -156,6 +181,40 @@ class DrawingCollectionViewController: UICollectionViewController
 //        collectionView?.allowsMultipleSelection = editing
 //      //  toolBar.hidden = !editing
 //    }
+
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
+    {
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext
+        // managedContext.deleteObject(people.last!)
+        
+        if ableToDelete == true
+        {
+        //4
+        do {
+            //people.
+            //try //managedContext.save()
+            //5
+           // let personToDelete = people.removeAtIndex(indexPath.row)
+            let personToDelete = people[indexPath.row]
+            people.removeAtIndex(indexPath.row)
+            collectionView.deleteItemsAtIndexPaths([indexPath])
+            managedContext.deleteObject(personToDelete)
+            try  managedContext.save()
+            // people.removeLast()
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+        }
+        collectionView.reloadData()
+
+        
+       // cellNames.removeAtIndex(indexPath.row)
+        
+       // collectionView.deleteItemsAtIndexPaths([indexPath])
+    }
 
 
     
