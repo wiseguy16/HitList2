@@ -62,15 +62,25 @@ class DrawingCollectionViewController: UICollectionViewController
     }
 
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "DetailSegue"
+        {
+          //  let detailVC = segue.destinationViewController as! DetailDrawingViewController
+           // let myIndexPath = NSIndexPath(forRow: , inSection: 1)
+           //  let aPerson = people
+            //people[indexPath.row]
+            
+        }
+        
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
     // MARK: UICollectionViewDataSource
 
@@ -197,6 +207,21 @@ class DrawingCollectionViewController: UICollectionViewController
         
         let managedContext = appDelegate.managedObjectContext
         // managedContext.deleteObject(people.last!)
+        
+        if ableToDelete == false
+        {
+        let aPerson = people[indexPath.row] as! Person
+        
+        let detailVC = self.storyboard?.instantiateViewControllerWithIdentifier("DetailVC") as! DetailDrawingViewController
+        navigationController?.pushViewController(detailVC, animated: true)
+        detailVC.aDrawing = aPerson
+            
+        }
+        
+        /*
+         let vc = self.storyboard!.instantiateViewControllerWithIdentifier("DrawingModalVC")
+         self.showViewController(vc as! DrawingViewController, sender: vc)
+         */
         
         
         if ableToDelete == true

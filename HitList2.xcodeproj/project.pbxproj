@@ -24,6 +24,8 @@
 		4A6C68901D723A4B0084E590 /* ColorWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6C688B1D723A4B0084E590 /* ColorWheel.swift */; };
 		4A6C68911D723A4B0084E590 /* SelectedColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6C688C1D723A4B0084E590 /* SelectedColorView.swift */; };
 		4A6C68921D723A4B0084E590 /* SwiftHSVColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6C688D1D723A4B0084E590 /* SwiftHSVColorPicker.swift */; };
+		4ADF5DCC1D724DA40004CB79 /* DetailDrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF5DCB1D724DA40004CB79 /* DetailDrawingViewController.swift */; };
+		4ADF5DCE1D734D600004CB79 /* AwesomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF5DCD1D734D600004CB79 /* AwesomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		4A6C688B1D723A4B0084E590 /* ColorWheel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorWheel.swift; sourceTree = "<group>"; };
 		4A6C688C1D723A4B0084E590 /* SelectedColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedColorView.swift; sourceTree = "<group>"; };
 		4A6C688D1D723A4B0084E590 /* SwiftHSVColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftHSVColorPicker.swift; sourceTree = "<group>"; };
+		4ADF5DCB1D724DA40004CB79 /* DetailDrawingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailDrawingViewController.swift; sourceTree = "<group>"; };
+		4ADF5DCD1D734D600004CB79 /* AwesomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwesomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +86,9 @@
 				4A6C68931D723A5A0084E590 /* Pod Files */,
 				4A45F60B1D6F8D3200E1BDC9 /* HitListTableViewController.swift */,
 				4A45F5F61D6F8CE900E1BDC9 /* AppDelegate.swift */,
+				4ADF5DCD1D734D600004CB79 /* AwesomeViewController.swift */,
 				4A45F60D1D6F8D4A00E1BDC9 /* HitListTableViewCell.swift */,
+				4ADF5DCB1D724DA40004CB79 /* DetailDrawingViewController.swift */,
 				4A45F6131D708C5900E1BDC9 /* DrawingViewController.swift */,
 				4A45F6151D70BA0100E1BDC9 /* DrawingCollectionViewController.swift */,
 				4A45F6171D70BA3C00E1BDC9 /* DrawingCell.swift */,
@@ -189,9 +195,11 @@
 			files = (
 				4A45F5F71D6F8CE900E1BDC9 /* AppDelegate.swift in Sources */,
 				4A45F6141D708C5900E1BDC9 /* DrawingViewController.swift in Sources */,
+				4ADF5DCC1D724DA40004CB79 /* DetailDrawingViewController.swift in Sources */,
 				4A45F6181D70BA3C00E1BDC9 /* DrawingCell.swift in Sources */,
 				4A45F60E1D6F8D4A00E1BDC9 /* HitListTableViewCell.swift in Sources */,
 				4A45F61B1D70C85800E1BDC9 /* Person+CoreDataProperties.swift in Sources */,
+				4ADF5DCE1D734D600004CB79 /* AwesomeViewController.swift in Sources */,
 				4A45F5FF1D6F8CE900E1BDC9 /* HitList2.xcdatamodeld in Sources */,
 				4A45F61C1D70C85800E1BDC9 /* Person.swift in Sources */,
 				4A6C68921D723A4B0084E590 /* SwiftHSVColorPicker.swift in Sources */,
