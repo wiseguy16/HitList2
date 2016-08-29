@@ -24,14 +24,6 @@ class DrawingCollectionViewController: UICollectionViewController
         title = "The Gallery"
         myFormatter.dateStyle = .ShortStyle
         myFormatter.timeStyle = .NoStyle
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        //self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,10 +62,6 @@ class DrawingCollectionViewController: UICollectionViewController
     {
         if segue.identifier == "DetailSegue"
         {
-          //  let detailVC = segue.destinationViewController as! DetailDrawingViewController
-           // let myIndexPath = NSIndexPath(forRow: , inSection: 1)
-           //  let aPerson = people
-            //people[indexPath.row]
             
         }
         
@@ -99,7 +87,6 @@ class DrawingCollectionViewController: UICollectionViewController
     {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! DrawingCell
     
-        // Configure the cell
         // Configure the cell...
         let person = people[indexPath.row] as! Person
         cell.nameLabel.text = person.name!
@@ -110,8 +97,8 @@ class DrawingCollectionViewController: UICollectionViewController
         
         
         
-//        let thisImage: UIImage = UIImage(data: person.valueForKey("theImage")
-        let myData = person.valueForKey("theImage") as! NSData
+        //let myData = person.valueForKey("theImage") as! NSData
+        let myData = person.theImage! as NSData
         let myImage = UIImage(data: myData)
         
         cell.pictView.image = myImage
@@ -130,58 +117,27 @@ class DrawingCollectionViewController: UICollectionViewController
     
     @IBAction func deleteDrawingTapped(sender: UIBarButtonItem)
     {
-       // if deletingInProgress == false
-       // {
-       // ableToDelete = false
-          //  deletingInProgress = true
-            
-       // }
+
         let tempString = ableToDelete ? "Delete": "Done"
         let tempColor = ableToDelete ? UIColor.grayColor() : UIColor.redColor()
         sender.title = tempString
         collectionView?.backgroundColor = tempColor
         ableToDelete = !ableToDelete
         
-        
-        //let tempColor = collectionView.cellForItemAtIndexPath(indexPath)?.backgroundColor
-        
-        
         collectionView!.reloadData()
         
-        
-      //   ableToDelete ? sender.title = "Done": sender.title = "Delete"
-//       if ableToDelete == false
-//        {
-//        sender.title = "Done"
-//        ableToDelete = true
-//        }
-//        else if ableToDelete == true
-//        {
-//            sender.title = "Delete"
-//            ableToDelete = false
-//        }
-//
-        
-       // deleteName()
-       // collectionView!.reloadData()
         
     }
     
     
     func deleteName()
     {
-        //1
+        
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         let managedContext = appDelegate.managedObjectContext
-        // managedContext.deleteObject(people.last!)
         
-        
-        //4
         do {
-            //people.
-            //try //managedContext.save()
-            //5
             let personToDelete = people.last!
             people.removeAtIndex(people.count - 1)
             managedContext.deleteObject(personToDelete)
@@ -192,6 +148,7 @@ class DrawingCollectionViewController: UICollectionViewController
         }
         collectionView!.reloadData()
     }
+    
 //    
 //    override func setEditing(editing: Bool, animated: Bool)
 //    {
@@ -226,11 +183,7 @@ class DrawingCollectionViewController: UICollectionViewController
         
         if ableToDelete == true
         {
-        //4
         do {
-            //try //managedContext.save()
-            //5
-           // let personToDelete = people.removeAtIndex(indexPath.row)
             let personToDelete = people[indexPath.row]
        /*
             let deleteColor = UIColor.redColor()
@@ -241,20 +194,11 @@ class DrawingCollectionViewController: UICollectionViewController
             collectionView.deleteItemsAtIndexPaths([indexPath])
             managedContext.deleteObject(personToDelete)
             try  managedContext.save()
-           // collectionView.cellForItemAtIndexPath(indexPath)?.backgroundColor = tempColor
-            // people.removeLast()
             } catch let error as NSError  {
             print("Could not save \(error), \(error.userInfo)")
             }
         }
         
-//        collectionView.cellForItemAtIndexPath(indexPath)?.backgroundColor = tempColor
-//        collectionView.reloadData()
-
-        
-       // cellNames.removeAtIndex(indexPath.row)
-        
-       // collectionView.deleteItemsAtIndexPaths([indexPath])
     }
 
 

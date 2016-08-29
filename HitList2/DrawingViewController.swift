@@ -11,11 +11,12 @@ import CoreData
 
 class DrawingViewController: UIViewController
 {
-    //var people = [NSManagedObject]()
 
     @IBOutlet weak var gestureNameLabel: UILabel!
     
     @IBOutlet weak var canvas: UIImageView!
+    
+    // CocoaPod stuff
     @IBOutlet weak var colorPicker: SwiftHSVColorPicker!
     @IBOutlet weak var colorButtonOutlet: UIButton!
     
@@ -54,7 +55,7 @@ class DrawingViewController: UIViewController
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    
+ 
     @IBAction func getSelectedColor(sender: UIButton)
     {
         let selectedColor = colorPicker.color
@@ -95,16 +96,6 @@ class DrawingViewController: UIViewController
         
     }
     
-//
-//    @IBAction func pinch(sender: UIPinchGestureRecognizer)
-//    {
-//       if sender.state == .Ended
-//       {
-//        print("pinched")
-//        }
-//        
-//    }
-//    
     
     @IBAction func saveDrawing(sender: UIBarButtonItem)
     {
@@ -125,14 +116,10 @@ class DrawingViewController: UIViewController
             (textField: UITextField) -> Void in
         }
         
-        //alert.addAction(saveAction)
         alert.addAction(cancelAction)
         alert.addAction(saveAction)
         
         presentViewController(alert, animated: true, completion: nil)
-        
-        
-      //  showGestureName()
         
     }
     

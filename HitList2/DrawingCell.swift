@@ -11,12 +11,6 @@ import UIKit
 class DrawingCell: UICollectionViewCell
 {
     
-    /*
-     @IBOutlet weak var nameLabel: UILabel!
-     
-     @IBOutlet weak var DateLabel: UILabel!
-     @IBOutlet weak var pictView: UIImageView!
-     */
     
     @IBOutlet weak var pictView: UIImageView!
     

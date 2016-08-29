@@ -50,8 +50,6 @@ class DetailDrawingViewController: UIViewController
         
         detailDrawingView.image = myImage
         
-    //    detailDateLabel.text = aDrawing
-       // detailDrawingView.image
     }
     
     @IBAction func shareTapped(sender: UIBarButtonItem)
