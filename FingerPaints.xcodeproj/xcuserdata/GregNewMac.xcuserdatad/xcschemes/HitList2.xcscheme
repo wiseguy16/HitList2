@@ -17,7 +17,7 @@
                BlueprintIdentifier = "4A45F5F21D6F8CE900E1BDC9"
                BuildableName = "HitList2.app"
                BlueprintName = "HitList2"
-               ReferencedContainer = "container:HitList2.xcodeproj">
+               ReferencedContainer = "container:FingerPaints.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
             BlueprintIdentifier = "4A45F5F21D6F8CE900E1BDC9"
             BuildableName = "HitList2.app"
             BlueprintName = "HitList2"
-            ReferencedContainer = "container:HitList2.xcodeproj">
+            ReferencedContainer = "container:FingerPaints.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -58,7 +58,7 @@
             BlueprintIdentifier = "4A45F5F21D6F8CE900E1BDC9"
             BuildableName = "HitList2.app"
             BlueprintName = "HitList2"
-            ReferencedContainer = "container:HitList2.xcodeproj">
+            ReferencedContainer = "container:FingerPaints.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -77,7 +77,7 @@
             BlueprintIdentifier = "4A45F5F21D6F8CE900E1BDC9"
             BuildableName = "HitList2.app"
             BlueprintName = "HitList2"
-            ReferencedContainer = "container:HitList2.xcodeproj">
+            ReferencedContainer = "container:FingerPaints.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
