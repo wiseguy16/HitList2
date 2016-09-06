@@ -152,18 +152,9 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJe-qr-k3Z">
-                                <rect key="frame" x="481" y="574" width="117" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <state key="normal" title="(Click here 4 Awesome!)"/>
-                                <connections>
-                                    <action selector="awesomeTapped:" destination="lVl-Mj-5CU" eventType="touchUpInside" id="4Mb-NV-8k8"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="PJe-qr-k3Z" secondAttribute="bottom" constant="2" id="DOZ-fQ-6fy"/>
                             <constraint firstItem="nAD-HQ-OoC" firstAttribute="top" secondItem="MDA-AE-Ztx" secondAttribute="bottom" id="JK3-c8-2ep"/>
                             <constraint firstItem="Wh9-NL-qkf" firstAttribute="top" secondItem="nAD-HQ-OoC" secondAttribute="bottom" id="Qj1-42-uWJ"/>
                             <constraint firstItem="MyK-hv-liY" firstAttribute="top" secondItem="Wh9-NL-qkf" secondAttribute="bottom" constant="15" id="RCq-iY-td2"/>
@@ -171,19 +162,10 @@
                             <constraint firstItem="MDA-AE-Ztx" firstAttribute="leading" secondItem="J9G-Og-HS7" secondAttribute="leadingMargin" id="aeb-G5-59w"/>
                             <constraint firstItem="MDA-AE-Ztx" firstAttribute="top" secondItem="b0A-Fy-8RY" secondAttribute="bottom" constant="8" id="d0D-N8-Jya"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MDA-AE-Ztx" secondAttribute="trailing" id="dDt-0m-PVo"/>
-                            <constraint firstItem="PJe-qr-k3Z" firstAttribute="trailing" secondItem="J9G-Og-HS7" secondAttribute="trailingMargin" id="ism-tH-AwH"/>
-                            <constraint firstItem="MyK-hv-liY" firstAttribute="top" secondItem="PJe-qr-k3Z" secondAttribute="bottom" constant="6" id="lLk-cV-FGL"/>
                             <constraint firstItem="nAD-HQ-OoC" firstAttribute="leading" secondItem="J9G-Og-HS7" secondAttribute="leading" id="njv-oR-c1Y"/>
                             <constraint firstItem="Wh9-NL-qkf" firstAttribute="leading" secondItem="J9G-Og-HS7" secondAttribute="leadingMargin" id="o4r-3Q-RHf"/>
-                            <constraint firstAttribute="trailing" secondItem="PJe-qr-k3Z" secondAttribute="trailing" constant="2" id="pyq-Qx-4cH"/>
                             <constraint firstAttribute="trailing" secondItem="nAD-HQ-OoC" secondAttribute="trailing" id="rAm-lh-34c"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="lLk-cV-FGL"/>
-                                <exclude reference="ism-tH-AwH"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="mwD-6g-3Ec">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="VLJ-eL-6Mr">
@@ -201,55 +183,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BxN-i1-fwC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3439" y="1453"/>
-        </scene>
-        <!--Awesome View Controller-->
-        <scene sceneID="fGc-vB-Ztr">
-            <objects>
-                <viewController storyboardIdentifier="AwesomeVC" id="67n-ku-RZA" customClass="AwesomeViewController" customModule="HitList2" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5LK-qY-qAD"/>
-                        <viewControllerLayoutGuide type="bottom" id="762-RO-rU8"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ak1-uf-Lt0">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jM5-MD-wuy">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                            </webView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="jM5-MD-wuy" secondAttribute="trailing" id="4In-f6-wKX"/>
-                            <constraint firstItem="jM5-MD-wuy" firstAttribute="top" secondItem="Ak1-uf-Lt0" secondAttribute="top" id="DxK-Jm-xDW"/>
-                            <constraint firstItem="jM5-MD-wuy" firstAttribute="top" secondItem="5LK-qY-qAD" secondAttribute="bottom" id="RG1-tL-4j2"/>
-                            <constraint firstAttribute="bottom" secondItem="jM5-MD-wuy" secondAttribute="bottom" id="RxJ-oR-4yk"/>
-                            <constraint firstItem="jM5-MD-wuy" firstAttribute="leading" secondItem="Ak1-uf-Lt0" secondAttribute="leading" id="Slu-JA-nNe"/>
-                            <constraint firstAttribute="trailing" secondItem="jM5-MD-wuy" secondAttribute="trailing" id="aZG-fn-F6B"/>
-                            <constraint firstItem="jM5-MD-wuy" firstAttribute="centerX" secondItem="Ak1-uf-Lt0" secondAttribute="centerX" id="dsi-Qi-zTz"/>
-                            <constraint firstItem="jM5-MD-wuy" firstAttribute="leading" secondItem="Ak1-uf-Lt0" secondAttribute="leading" id="eRe-9E-xng"/>
-                            <constraint firstItem="jM5-MD-wuy" firstAttribute="centerY" secondItem="Ak1-uf-Lt0" secondAttribute="centerY" id="f2z-k9-p55"/>
-                            <constraint firstItem="762-RO-rU8" firstAttribute="top" secondItem="jM5-MD-wuy" secondAttribute="bottom" id="jbf-IR-ks5"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="RG1-tL-4j2"/>
-                                <exclude reference="aZG-fn-F6B"/>
-                                <exclude reference="dsi-Qi-zTz"/>
-                                <exclude reference="eRe-9E-xng"/>
-                                <exclude reference="f2z-k9-p55"/>
-                                <exclude reference="jbf-IR-ks5"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <connections>
-                        <outlet property="awesomeWebView" destination="jM5-MD-wuy" id="72y-VQ-61G"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uql-Ru-ChB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4127" y="1475"/>
         </scene>
         <!--Drawing View Controller-->
         <scene sceneID="oTq-oV-3aZ">

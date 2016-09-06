@@ -64,12 +64,7 @@ class DetailDrawingViewController: UIViewController
         self.presentViewController(vc, animated: true, completion: nil)
     }
 
-    @IBAction func awesomeTapped(sender: UIButton)
-    {
-        let vc = self.storyboard!.instantiateViewControllerWithIdentifier("AwesomeVC")
-        self.showViewController(vc as! AwesomeViewController, sender: vc)
-    }
-    /*
+        /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
