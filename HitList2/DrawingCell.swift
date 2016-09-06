@@ -18,4 +18,5 @@ class DrawingCell: UICollectionViewCell
     
     @IBOutlet weak var dateLabel: UILabel!
     
+    @IBOutlet weak var deleteButton: UIButton!
 }

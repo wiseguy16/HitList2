@@ -161,7 +161,9 @@ class DrawingViewController: UIViewController
     
     func makeImage() -> UIImage
     {
-        UIGraphicsBeginImageContext(self.view.bounds.size)
+        
+        
+        UIGraphicsBeginImageContext(self.canvas.bounds.size)
         view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
         let viewImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

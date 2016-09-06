@@ -43,12 +43,21 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gad-tM-jGy">
                                             <rect key="frame" x="2" y="17" width="86" height="150"/>
                                         </imageView>
+                                        <button opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UzD-XJ-lvn">
+                                            <rect key="frame" x="10" y="21" width="72" height="138"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <state key="normal" title="Delete">
+                                                <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="5su-mW-rR8" firstAttribute="top" secondItem="gad-tM-jGy" secondAttribute="bottom" id="124-4q-KqB"/>
+                                    <constraint firstItem="UzD-XJ-lvn" firstAttribute="centerY" secondItem="1U2-iB-IKP" secondAttribute="centerY" id="2ck-hu-JtJ"/>
                                     <constraint firstItem="5su-mW-rR8" firstAttribute="leading" secondItem="1U2-iB-IKP" secondAttribute="leading" id="2w3-f3-hUP"/>
                                     <constraint firstAttribute="bottom" secondItem="5su-mW-rR8" secondAttribute="bottom" id="6qT-oo-xJK"/>
                                     <constraint firstAttribute="trailing" secondItem="5su-mW-rR8" secondAttribute="trailing" id="7fq-Tf-Ryj"/>
@@ -59,10 +68,14 @@
                                     <constraint firstItem="gad-tM-jGy" firstAttribute="top" secondItem="aQp-0Y-G2S" secondAttribute="bottom" id="Esc-Or-8xQ"/>
                                     <constraint firstItem="5su-mW-rR8" firstAttribute="bottom" secondItem="1U2-iB-IKP" secondAttribute="bottomMargin" id="J7K-Z3-ELq"/>
                                     <constraint firstItem="aQp-0Y-G2S" firstAttribute="leading" secondItem="1U2-iB-IKP" secondAttribute="leadingMargin" id="Mmg-4d-zpY"/>
+                                    <constraint firstItem="UzD-XJ-lvn" firstAttribute="top" secondItem="aQp-0Y-G2S" secondAttribute="bottom" constant="4" id="NUV-a1-NZE"/>
+                                    <constraint firstItem="UzD-XJ-lvn" firstAttribute="trailing" secondItem="1U2-iB-IKP" secondAttribute="trailingMargin" id="R7R-33-XGd"/>
+                                    <constraint firstItem="UzD-XJ-lvn" firstAttribute="leading" secondItem="1U2-iB-IKP" secondAttribute="leadingMargin" constant="2" id="RbH-B8-9sf"/>
                                     <constraint firstItem="5su-mW-rR8" firstAttribute="top" secondItem="gad-tM-jGy" secondAttribute="bottom" id="a7X-Pm-MCW"/>
                                     <constraint firstItem="5su-mW-rR8" firstAttribute="leading" secondItem="1U2-iB-IKP" secondAttribute="leadingMargin" id="cLa-Ut-VpD"/>
                                     <constraint firstAttribute="trailing" secondItem="aQp-0Y-G2S" secondAttribute="trailing" id="eMe-AH-14o"/>
                                     <constraint firstItem="aQp-0Y-G2S" firstAttribute="leading" secondItem="1U2-iB-IKP" secondAttribute="leading" id="kRM-gd-k4X"/>
+                                    <constraint firstItem="5su-mW-rR8" firstAttribute="top" secondItem="UzD-XJ-lvn" secondAttribute="bottom" constant="8" id="ma4-tZ-4yJ"/>
                                     <constraint firstItem="aQp-0Y-G2S" firstAttribute="top" secondItem="1U2-iB-IKP" secondAttribute="topMargin" id="pP0-x0-TVd"/>
                                     <constraint firstItem="aQp-0Y-G2S" firstAttribute="top" secondItem="1U2-iB-IKP" secondAttribute="top" id="pcO-wX-Gdk"/>
                                     <constraint firstItem="gad-tM-jGy" firstAttribute="leading" secondItem="1U2-iB-IKP" secondAttribute="leading" constant="2" id="vXg-Zv-Xxv"/>
@@ -74,6 +87,7 @@
                                         <exclude reference="Mmg-4d-zpY"/>
                                         <exclude reference="pP0-x0-TVd"/>
                                         <exclude reference="8ev-1z-tSN"/>
+                                        <exclude reference="2ck-hu-JtJ"/>
                                         <exclude reference="124-4q-KqB"/>
                                         <exclude reference="DyX-9k-IiF"/>
                                         <exclude reference="J7K-Z3-ELq"/>
@@ -82,6 +96,7 @@
                                 </variation>
                                 <connections>
                                     <outlet property="dateLabel" destination="5su-mW-rR8" id="Ufh-XK-sHl"/>
+                                    <outlet property="deleteButton" destination="UzD-XJ-lvn" id="g3B-XS-yfq"/>
                                     <outlet property="nameLabel" destination="aQp-0Y-G2S" id="TKU-eC-RNj"/>
                                     <outlet property="pictView" destination="gad-tM-jGy" id="z4U-rz-Ilc"/>
                                 </connections>
@@ -93,7 +108,7 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="Ks7-dJ-Kdp">
-                        <barButtonItem key="leftBarButtonItem" title="Delete" id="9UJ-nL-zoO">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="9UJ-nL-zoO">
                             <connections>
                                 <action selector="deleteDrawingTapped:" destination="tw1-Y0-t93" id="xjV-zQ-xq3"/>
                             </connections>
@@ -251,21 +266,21 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ow-Ms-LW7">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem title="Exit" id="Zbi-RB-zKd">
+                                    <barButtonItem title="Exit" id="v7E-cx-hwd">
                                         <connections>
-                                            <action selector="goBackTapped:" destination="gVr-Vw-60y" id="WR2-w8-fia"/>
+                                            <action selector="goBackTapped:" destination="gVr-Vw-60y" id="QxQ-J4-zwP"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ws1-H5-9Fq"/>
-                                    <barButtonItem title="Pick Color" id="kRs-du-y9T">
-                                        <connections>
-                                            <action selector="pickColorTapped:" destination="gVr-Vw-60y" id="fjA-Ky-nzW"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="0M6-c0-JzL"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="172-ZG-x9E"/>
                                     <barButtonItem title="Clear" id="dLc-Bo-KoF">
                                         <connections>
                                             <action selector="clearImage:" destination="gVr-Vw-60y" id="oEQ-kr-XXz"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="0M6-c0-JzL"/>
+                                    <barButtonItem title="Pick Color" id="kRs-du-y9T">
+                                        <connections>
+                                            <action selector="pickColorTapped:" destination="gVr-Vw-60y" id="fjA-Ky-nzW"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="F2R-fj-76V"/>
@@ -295,8 +310,8 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CON-ta-B0C">
-                                <rect key="frame" x="267" y="490" width="66" height="30"/>
-                                <state key="normal" title="Get Color"/>
+                                <rect key="frame" x="268" y="458" width="64" height="30"/>
+                                <state key="normal" title="Set Color"/>
                                 <connections>
                                     <action selector="getSelectedColor:" destination="gVr-Vw-60y" eventType="touchUpInside" id="45A-42-Uh7"/>
                                 </connections>
@@ -309,16 +324,28 @@
                             <constraint firstItem="j8H-XZ-wzO" firstAttribute="leading" secondItem="5Us-aZ-Oaj" secondAttribute="leading" id="5hN-hB-GKx"/>
                             <constraint firstItem="XAd-ty-aYb" firstAttribute="centerY" secondItem="5Us-aZ-Oaj" secondAttribute="centerY" id="5oW-on-Rdb"/>
                             <constraint firstItem="XAd-ty-aYb" firstAttribute="centerX" secondItem="5Us-aZ-Oaj" secondAttribute="centerX" id="9xm-pT-HCm"/>
+                            <constraint firstItem="CON-ta-B0C" firstAttribute="top" secondItem="XAd-ty-aYb" secondAttribute="bottom" constant="8" id="JER-pA-7Fl"/>
                             <constraint firstItem="0Ow-Ms-LW7" firstAttribute="leading" secondItem="5Us-aZ-Oaj" secondAttribute="leading" id="MHw-9a-QdC"/>
                             <constraint firstAttribute="trailing" secondItem="0Ow-Ms-LW7" secondAttribute="trailing" id="OUz-20-MIT"/>
                             <constraint firstItem="0Ow-Ms-LW7" firstAttribute="top" secondItem="j8H-XZ-wzO" secondAttribute="bottom" id="PFT-4D-X7h"/>
                             <constraint firstItem="JbZ-xs-43D" firstAttribute="centerX" secondItem="5Us-aZ-Oaj" secondAttribute="centerX" id="SIJ-RU-5Rf"/>
                             <constraint firstItem="Y78-eO-3VV" firstAttribute="top" secondItem="0Ow-Ms-LW7" secondAttribute="bottom" id="UZ7-Oh-lix"/>
                             <constraint firstItem="CON-ta-B0C" firstAttribute="centerX" secondItem="5Us-aZ-Oaj" secondAttribute="centerX" id="abG-Dt-Bse"/>
+                            <constraint firstItem="CON-ta-B0C" firstAttribute="centerX" secondItem="5Us-aZ-Oaj" secondAttribute="centerX" id="fTV-mZ-EbM"/>
                             <constraint firstItem="JbZ-xs-43D" firstAttribute="centerY" secondItem="5Us-aZ-Oaj" secondAttribute="centerY" id="noD-Q3-5Ih"/>
+                            <constraint firstItem="CON-ta-B0C" firstAttribute="leading" secondItem="5Us-aZ-Oaj" secondAttribute="leadingMargin" id="roH-4y-PTT"/>
                             <constraint firstItem="CON-ta-B0C" firstAttribute="top" secondItem="XAd-ty-aYb" secondAttribute="bottom" constant="40" id="tSY-Vn-i2M"/>
+                            <constraint firstItem="CON-ta-B0C" firstAttribute="top" secondItem="3V1-Wv-dgC" secondAttribute="bottom" constant="8" id="vVh-dq-coz"/>
                             <constraint firstItem="j8H-XZ-wzO" firstAttribute="top" secondItem="3V1-Wv-dgC" secondAttribute="bottom" id="xjr-hb-1Dc"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="abG-Dt-Bse"/>
+                                <exclude reference="roH-4y-PTT"/>
+                                <exclude reference="tSY-Vn-i2M"/>
+                                <exclude reference="vVh-dq-coz"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="D6Y-w5-XR5" appends="YES" id="Ko9-1X-UNE"/>
                         </connections>

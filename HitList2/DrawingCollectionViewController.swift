@@ -91,6 +91,7 @@ class DrawingCollectionViewController: UICollectionViewController
         let person = people[indexPath.row] as! Person
         cell.nameLabel.text = person.name!
         
+        
         let timeToShow = person.theDate!
         let formattedTime = myFormatter.stringFromDate(timeToShow)
         cell.dateLabel.text = formattedTime
@@ -102,6 +103,15 @@ class DrawingCollectionViewController: UICollectionViewController
         let myImage = UIImage(data: myData)
         
         cell.pictView.image = myImage
+        
+        if ableToDelete
+        {
+           cell.deleteButton.alpha = 0.75
+        }
+        else
+        {
+                cell.deleteButton.alpha = 0.0
+        }
 
     
         return cell
@@ -118,7 +128,7 @@ class DrawingCollectionViewController: UICollectionViewController
     @IBAction func deleteDrawingTapped(sender: UIBarButtonItem)
     {
 
-        let tempString = ableToDelete ? "Delete": "Done"
+        let tempString = ableToDelete ? "Edit": "Done"
         let tempColor = ableToDelete ? UIColor.grayColor() : UIColor.redColor()
         sender.title = tempString
         collectionView?.backgroundColor = tempColor
@@ -149,13 +159,13 @@ class DrawingCollectionViewController: UICollectionViewController
         collectionView!.reloadData()
     }
     
-//    
-//    override func setEditing(editing: Bool, animated: Bool)
-//    {
-//        super.setEditing(editing, animated: animated)
-//        collectionView?.allowsMultipleSelection = editing
-//      //  toolBar.hidden = !editing
-//    }
+    
+    override func setEditing(editing: Bool, animated: Bool)
+    {
+        super.setEditing(editing, animated: animated)
+        collectionView?.allowsMultipleSelection = editing
+      //  toolBar.hidden = !editing
+    }
 
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
     {
@@ -200,38 +210,49 @@ class DrawingCollectionViewController: UICollectionViewController
         }
         
     }
+    
+//    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+//        
+//        
+//        
+//        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//        
+//        let managedContext = appDelegate.managedObjectContext
+//        
+//        return true
+//    }
 
 
     
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
+//    // MARK: UICollectionViewDelegate
+//
+//    
+//    // Uncomment this method to specify if the specified item should be highlighted during tracking
+//    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+//        return true
+//    }
+//    
+//
+//    
+//    // Uncomment this method to specify if the specified item should be selected
+//    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+//        return true
+//    }
+//    
+//
+//    
+//    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
+//    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+//        return false
+//    }
+//
+//    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
+//        return false
+//    }
+//
+//    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
+//    
+//    }
     
-    }
-    */
 
 }
